@@ -1,10 +1,11 @@
 #!/bin/bash
-
+#file Mangament
 python3 createTable.py
 
 cd results
 cd differences
 
+#Goes through data and collects reults into text files under pot errors
 for folder in *; do
    
     echo  $folder >>  ../potErrors/$folder".txt"
@@ -32,18 +33,13 @@ for folder in *; do
     echo "____________________________________________" >> ../../../potErrors/$folder".txt"
     echo "Wat Errors" >> ../../../potErrors/$folder".txt"
     cd ..
-    python3 ../../../watStuff.py $folder
     declare -i watDiff
+    python3 ../../../watStuff.py $folder
     watDiff=$?
     cd ..
     python ../../writeToTable.py $folder $count $wasmDiff $watDiff
 done
 
-# cd ~/Desktop/wasmfiles
-
-# python anaylseData.py 
-
-#!/bin/bash
 
 
 

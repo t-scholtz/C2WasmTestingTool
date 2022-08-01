@@ -1,0 +1,4 @@
+8c8
+<    for (Count = 1; Count <= 10; Count++)
+---
+>    for (Count = 1; Count <= 10; Count--)

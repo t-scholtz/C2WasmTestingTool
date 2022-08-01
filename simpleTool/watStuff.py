@@ -25,7 +25,7 @@ with open("../../potErrors/"+filename+".txt","a") as out:
                 count=count+1
             if count > 4:
                 out.write("\n")
-                out.write(file_name+"\n")
+                out.write(file_name)
                 numofDiff=numofDiff+1
 
 sys.exit(numofDiff)

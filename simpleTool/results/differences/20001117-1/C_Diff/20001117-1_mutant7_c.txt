@@ -1,4 +1,0 @@
-33c33
-<   if (call_site == (void *)0)
----
->   if (call_site != (void *)0)
