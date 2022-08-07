@@ -1,4 +1,0 @@
-10c10
-<       Array[Count-1] = Count * Count;
----
->       Array[Count-1] = Count / Count;

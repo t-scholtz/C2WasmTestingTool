@@ -1,4 +1,0 @@
-13c13
-<    for (Count = 0; Count < 10; Count++)
----
->    for (Count = 0; Count >= 10; Count++)

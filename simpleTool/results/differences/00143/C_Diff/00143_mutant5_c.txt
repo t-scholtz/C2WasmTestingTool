@@ -1,4 +1,0 @@
-22c22
-<     switch (count % 8) {
----
->     switch (count / 8) {

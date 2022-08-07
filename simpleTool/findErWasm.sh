@@ -21,11 +21,18 @@ for folder in *; do
     	count+=1
         file_name=${mutant%".txt"}
         
-        if ! cmp --silent -- $mutant ../Wasm_out/$file_name".txt";
-        then
-            wasmDiff+=1
-            echo $mutant >> ../../../potErrors/$folder".txt"
-            diff $mutant ../Wasm_out/$file_name".txt">> ../../../potErrors/$folder".txt"
+        if ! cmp --silent -- $mutant ../Wasm_out/$file_name".txt";then
+            declare -i abortCon
+            python3 ../../../../checkIfAbort.py $file_name
+            abortCon=$?
+
+            if [ $abortCon -eq 0 ]; then
+                wasmDiff+=1
+                echo $mutant >> ../../../potErrors/$folder".txt"
+                diff $mutant ../Wasm_out/$file_name".txt">> ../../../potErrors/$folder".txt"
+            fi
+
+            
         fi
    
     done

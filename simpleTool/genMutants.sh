@@ -123,7 +123,7 @@ if [[ "$file" != *"$STRING"* ]];then
 		if [[ "$cProg" == *"$base_file"* ]];then
 			file_path=$(basename $cProg ".c")
 			clang $cProg -o $file_path.o
-			./$file_path.o & sleep 0.3 ; kill $!
+			timeout 60 ./$file_path.o 
 			echo $? > ../differences/$base_file/C_out/"$file_path".txt
 		
 		fi
@@ -140,7 +140,7 @@ for prog in *; do
    for file in *.js; do
         if [[ "$file" == *"$prog"* ]] ; then
             base_file=$(basename $file ".js" )
-			nodejs $file  & sleep 0.3 ; kill $!
+			timeout 60 nodejs $file  
             echo $? > ../differences/$prog/Wasm_out/$base_file.txt
         fi
     done
